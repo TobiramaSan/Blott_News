@@ -1,103 +1,112 @@
+"use client";
+import { motion, easeOut } from "framer-motion";
+import { blottLogo, ovalLight } from "@/assets";
+import Button from "@/components/buttons/Button";
 import Image from "next/image";
+import React from "react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const containerVariants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delayChildren: 0.5,
+        staggerChildren: 0.3,
+        when: "beforeChildren",
+      },
+    },
+  };
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: easeOut,
+      },
+    },
+  };
+
+  return (
+    <div className="w-full h-screen relative overflow-hidden">
+      <Image
+        src={ovalLight}
+        alt=""
+        aria-hidden="true"
+        style={{
+          width: "100%",
+          height: "100vh",
+          zIndex: -1,
+          position: "absolute",
+          top: 0,
+          left: 0,
+        }}
+        sizes="(max-width: 768px) 100vw, 100vw"
+        priority
+      />
+
+      <motion.main
+        className="z-1000 flex flex-col items-start justify-center h-full w-[90%] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:w-[75%]"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        <motion.div
+          className="w-full flex flex-col items-start justify-center gap-4 sm:gap-6 md:gap-8 xl:w-[62%]"
+          variants={itemVariants}
+        >
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.125rem] font-normal font-poppins leading-[100%] tracking-[1.4px] text-white">
+            Blott Studio
+          </h1>
+          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] md:text-nowrap leading-[100%] md:leading-[120px] lg:leading-[150px] font-bold tracking-[1.4px] text-white">
+            Web Assessment
+          </h2>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#828282] font-semibold leading-[100%] tracking-[1.4px]">
+            Finance Digest
+          </h3>
+        </motion.div>
+
+        <motion.div
+          className="w-full flex flex-col items-center md:flex-row md:justify-between mt-16 sm:mt-24 md:mt-32 lg:mt-48 xl:mt-[200px] xl:w-[85%]"
+          variants={itemVariants}
+        >
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 mb-8 md:mb-0">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src={blottLogo}
+              alt="Blott Ltd Logo"
+              width={150}
+              height={36}
+              sizes="(max-width: 640px) 150px, (max-width: 768px) 180px, (max-width: 1024px) 200px, 235px"
+              className="w-[150px] h-[36px] sm:w-[180px] sm:h-[43px] md:w-[200px] md:h-[48px] lg:w-[235px] lg:h-[56px]"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <div className="flex flex-col gap-0 text-center sm:text-left">
+              <h1 className="text-white text-sm sm:text-base font-bold">
+                Blott.io Ltd
+              </h1>
+              <p className="text-white text-sm sm:text-base font-normal">
+                ⓒ2020 Blott.io Ltd, All right reserved
+              </p>
+            </div>
+          </div>
+
+          <Button
+            href="/news"
+            width="full sm:w-auto md:w-[200px] lg:w-[250px] xl:w-[328px]"
+            height="14 sm:h-16 md:h-[60px] lg:h-[70px] xl:h-[85px]"
+            overrideStyles="
+              text-lg sm:text-xl md:text-2xl lg:text-[28px] xl:text-[32px]
+              px-6 sm:px-8 md:px-12 lg:px-[80px] xl:px-[100px]
+              rounded-full md:rounded-[500px] text-nowrap
+            "
           >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+            Click Me!
+          </Button>
+        </motion.div>
+      </motion.main>
     </div>
   );
 }

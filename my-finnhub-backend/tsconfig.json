@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es2022", // Use a modern target for current Node.js versions
+    "module": "commonjs", // Node.js uses CommonJS modules
+    "outDir": "./dist", // Output directory for compiled JavaScript
+    "rootDir": "./src", // Source directory for TypeScript files
+    "esModuleInterop": true, // Recommended for better module interoperability
+    "forceConsistentCasingInFileNames": true,
+    "strict": true, // Enables all strict type-checking options
+    "noImplicitAny": true, // Error on expressions and declarations with an implied 'any' type
+    "strictNullChecks": true, // Enable strict null checks
+    "noUnusedLocals": true, // Report errors on unused local variables
+    "noUnusedParameters": true, // Report errors on unused parameters
+    "skipLibCheck": true, // Skip type checking of all .d.ts files (for faster compilation)
+    "resolveJsonModule": true, // Allows importing .json files
+    "typeRoots": ["./node_modules/@types", "./types"] // Look for types in 'types' folder too
+  },
+  "include": [
+    "src/**/*", // Include all files in the src directory
+    "types/**/*" // Include custom type declarations
+  ],
+  "exclude": ["node_modules", "dist"]
+}

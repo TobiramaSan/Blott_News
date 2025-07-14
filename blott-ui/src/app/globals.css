@@ -1,26 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
 @import "tailwindcss";
+
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
+  --foreground: #010101;
+  --primary-color: #3b82f6;
+  --secondary-color: #6d28d9;
+  /* Define a base gray if you want to use 'text-gray' directly */
+  --base-gray: #6b7280; /* A common gray shade, e.g., similar to gray-500/600 */
+  --button-gray: #828282; /* A specific shade for your customGray button */
+  --button-blue: #55acee;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --tailwind-fontFamily-sans: var(--font-inter), ui-sans-serif, system-ui,
+--tailwind-fontFamily-sans: var(--font-inter), ui-sans-serif, system-ui,
+  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+  "Noto Color Emoji";
+--tailwind-fontFamily-heading: var(--font-epilogue), ui-sans-serif, system-ui,
+  sans-serif;
+
+/* --- Color Customization (from above) --- */
+--tailwind-color-background: var(--background);
+--tailwind-color-foreground: var(--foreground);
+--tailwind-color-primary: var(--primary-color);
+--tailwind-color-secondary: var(--secondary-color);
+--tailwind-color-accent: #ef4444;
+--tailwind-color-custom-green: #22c55e;
+
+/* --- ADD THESE NEW COLOR DEFINITIONS --- */
+--tailwind-color-gray: var(
+  --base-gray
+); /* Maps `text-gray` to your --base-gray variable */
+--tailwind-color-buttonGray: var(
+  --button-gray
+); /* Maps `bg-customGray` to your --button-gray variable */
+--tailwind-color-buttonBlue: var(
+  --button-blue
+); /* Maps `bg-buttonBlue` to your --button-blue variable */
+  --tailwind-fontFamily-sans: var(--font-inter), ui-sans-serif, system-ui,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --tailwind-fontFamily-heading: var(--font-epilogue), ui-sans-serif, system-ui,
+    sans-serif;
+
+  /* --- Color Customization (from above) --- */
+  --tailwind-color-background: var(--background);
+  --tailwind-color-foreground: var(--foreground);
+  --tailwind-color-primary: var(--primary-color);
+  --tailwind-color-secondary: var(--secondary-color);
+  --tailwind-color-accent: #ef4444;
+  --tailwind-color-custom-green: #22c55e;
+
+  /* --- ADD THESE NEW COLOR DEFINITIONS --- */
+  --tailwind-color-gray: var(
+    --base-gray
+  ); /* Maps `text-gray` to your --base-gray variable */
+  --tailwind-color-customGray: var(
+    --button-gray
+  ); /* Maps `bg-customGray` to your --button-gray variable */
+  --tailwind-color-buttonBlue: var(
+    --button-blue
+  ); /* Maps `bg-buttonBlue` to your --button-blue variable */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #010101;
     --foreground: #ededed;
+    --primary-color: #60a5fa;
+    --secondary-color: #a78bfa;
+    --base-gray: #9ca3af; /* Lighter gray for dark mode, e.g., gray-400 */
+    --button-gray: #6b7280; /* Adjust custom gray for dark mode */
+    --button-blue: #55acee; /* Keep button blue consistent */
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
