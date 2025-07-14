@@ -16,7 +16,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ item }) => {
       href={item.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex xl:flex-col gap-2 justify-center items-start md:items-center p-2 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 hover:bg-gray-200 dark:hover:bg-gray-800"
+      className="flex md:flex-col gap-2 justify-center items-start md:items-center p-2 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 hover:bg-gray-200 dark:hover:bg-gray-800"
     >
       <Image
         src={item.image || placeholderImageUrl}
